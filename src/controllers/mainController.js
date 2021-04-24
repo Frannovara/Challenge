@@ -9,12 +9,22 @@ require('dotenv').config()
 
 const controller = {
 
-index: (req,res) => {
-    res.render('index.ejs')
+create: function(req, res) {
+    db.Task.create({
+        task: req.body.task
+    });
+
+    res.redirect("/tasks")
 },
 
-tasks: (req,res) => {
-    res.render('tasks.ejs')
+delete: function(req, res) {
+    db.Task.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+
+    res.redirect("/")
 }
 
 

@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `to_do_list_db`
 --
-CREATE DATABASE IF NOT EXISTS `to_do_list_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+CREATE DATABASE IF NOT EXISTS `to_do_list_db` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `to_do_list_db`;
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ USE `to_do_list_db`;
 CREATE TABLE `tasks` (
   `id` int(11) NOT NULL,
   `task` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Índices para tablas volcadas

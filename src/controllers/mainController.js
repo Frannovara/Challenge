@@ -25,6 +25,14 @@ delete: function(req, res) {
     })
 
     res.redirect("/")
+},
+
+index: function(req, res, next){
+    res.render("index.ejs")
+},
+
+task: function(req, res, next){
+    res.render("tasks.ejs")
 }
 
 

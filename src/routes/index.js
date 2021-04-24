@@ -8,7 +8,7 @@ router.get('/', function(req, res, next){
 router.post('/tasks', function(req, res, next){
   res.render('tasks.ejs')
 })
-router.get("/task", mainController.create)
+router.get("/tasks", mainController.create)
 router.post("/tasks/:id", mainController.delete)
 
 module.exports = router;

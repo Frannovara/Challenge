@@ -5,7 +5,7 @@ const mainController = require ('../controllers/mainController');
 router.get('/', function(req, res, next){
   res.render('index.ejs')
 })
-router.get('/task', function(req, res, next){
+router.post('/tasks', function(req, res, next){
   res.render('tasks.ejs')
 })
 router.get("/task", mainController.create)

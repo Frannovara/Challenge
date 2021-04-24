@@ -18,7 +18,7 @@ module.exports = (sequelize , dataTypes) =>{
         tableName: "tasks",
         timestamps: false
     }
-    const Task = sequelize.define(alias, cons, config);
+    const Task = sequelize.define(alias, cols, config);
     
     return Task;
 }

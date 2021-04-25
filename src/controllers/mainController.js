@@ -11,7 +11,7 @@ const controller = {
 
 create: function(req, res) {
     db.Task.create({
-        task: req.body.task
+        task: req.body.title
     });
 
     res.redirect("/tasks")
@@ -33,6 +33,20 @@ index: function(req, res, next){
 
 task: function(req, res, next){
     res.render("tasks.ejs")
+},
+
+read: function(req, res){
+    db.Task.findAll()
+    .then(function(tasks){
+        res.render("tasks.ejs", {tasks:tasks})
+    })
+},
+
+detail: function(req, res){
+    db.Task.findByPk(req.params.id)
+    .then(function(tasks){
+        res.render("detalleTasks.ejs"), {tasks:tasks}
+    })
 }
 
 

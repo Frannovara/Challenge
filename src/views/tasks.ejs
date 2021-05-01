@@ -7,13 +7,38 @@
     <title>Listado de Tasks</title>
 </head>
 <body>
+    <div class="container">
+        <div class="row">
+          <div class="col d-col w-100">
+            <div>
+              <form action="/tasks" method="post">
+                <input type="text" class="form-control" name="title">
+                <button class="btn btn-primary">Enviar</button>
+              </form>
+            </div>
+            <!-- Validacion opcional -->
+            <div class="alert">
+              <p class="invalid-text">El texto debe contener al menos 3 caracteres</p>
+            </div>
+            <!-- Validacion opcional -->
+    
+          </div>
+        </div>
+    
+    
+      </div>
     <h1>Listado de Tasks:</h1>
     <ul>
-        <% for (let i = 0, i < tasks.length; i++){ %>
+        <% for (let i = 0; i < tasks.length; i++){ %>
             <li>
             <a href="/tasks/<%=tasks[i].id%>">
-                <%=tasks[i].title%>
+                <%=tasks[i].task%>
             </a>
+            <form method="POST" action="/tasks/<%=tasks[i].id%>?_method=DELETE">
+                <button>
+                    Borrar
+                </button>
+            </form>
             </li>
        <% } %>
     </ul>

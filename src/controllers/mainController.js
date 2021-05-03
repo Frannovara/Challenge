@@ -10,42 +10,32 @@ require('dotenv').config()
 const controller = {
 
 create: function(req, res) {
-    db.Task.create({
+    db.Tasks.create({
         task: req.body.title
-    });
-
-    res.redirect("/tasks")
+    }).then(respuesta => res.redirect("/tasks"))
 },
 
 delete: function(req, res) {
-    db.Task.destroy({
+    db.Tasks.destroy({
         where: {
             id: req.params.id
         }
-    })
-
-    res.redirect("/")
+    }).then(respuesta => res.redirect("/tasks"))
 },
 
-index: function(req, res, next){
-    res.render("index.ejs")
-},
 
-task: function(req, res, next){
-    res.render("tasks.ejs")
-},
-
-read: function(req, res){
-    db.Task.findAll()
+task: function(req, res){
+    db.Tasks.findAll()
     .then(function(tasks){
-        res.render("tasks.ejs", {tasks:tasks})
+        res.render("tasks", {tasks:tasks})
     })
 },
 
 detail: function(req, res){
-    db.Task.findByPk(req.params.id)
+    db.Tasks.findByPk(req.params.id)
     .then(function(tasks){
-        res.render("detalleTasks.ejs"), {tasks:tasks}
+        console.log(tasks)
+        res.render("detalleTasks", {tasks:tasks.task})
     })
 }
 

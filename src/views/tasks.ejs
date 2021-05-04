@@ -17,9 +17,11 @@
               </form>
             </div>
             <!-- Validacion opcional -->
-            <div class="alert">
-              <p class="invalid-text">El texto debe contener al menos 3 caracteres</p>
-            </div>
+            <div>
+            <% if (typeof errors != 'undefined') { %>
+            <p style="color:red">La tarea debe contener mínimo 3 caracteres</p>
+            <% } %>
+          </div>
             <!-- Validacion opcional -->
     
           </div>
